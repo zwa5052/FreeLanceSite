@@ -1,9 +1,12 @@
-import { createApp } from 'vue'
-import App from './App.vue'
-import router from './router'
+import { createApp } from "vue";
+import App from "./App.vue";
+import Hero from "../src/components/Hero.vue";
+import router from "./router";
+import NavBarVue from "./components/NavBar.vue";
 
-const app = createApp(App)
+const app = createApp(App);
 
-app.use(router)
-
-app.mount('#app')
+app.use(router);
+app.component("hero", Hero);
+app.component("nav-bar", NavBarVue)
+app.mount("#app");
