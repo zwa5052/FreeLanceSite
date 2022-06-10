@@ -3,11 +3,9 @@ import { RouterLink, RouterView } from 'vue-router'
 </script>
 
 <template>
+  <nav-bar></nav-bar>
   <RouterView />
 </template>
 
 <style>
-@import '@/assets/base.css';
-
-
 </style>

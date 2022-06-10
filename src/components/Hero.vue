@@ -1,21 +1,47 @@
 <template>
-    <section class="hero is-dark is-fullheight">
-        <div class="hero-body">
-            <div class="level">
-            <h1 class="hero-title">
-                <span class="text-wrapper">
-                    <span class="letters-first" v-show="showTitleOne"> 
-                        Hello, 
-                    </span> <br>
-                    <span class="letters-second" v-show="showTitleTwo">
-                        I'm Zach,
+    <section class="hero is-fullheight">
+        <div class="hero-body ml-5">
+            <div class="container">
+                <h1 class="hero-title">
+                    <span class="text-wrapper">
+                        <span class="letters-first" v-show="showTitleOne">
+                            Hello,
+                        </span>
+                        <br />
+                        <span class="letters-second" v-show="showTitleTwo">
+                            I'm Zach,
+                        </span>
+                        <br />
+                        <span class="letters-third" v-show="showTitleThree">
+                            Full Stack Developer & Designer
+                        </span>
+                        <br />
                     </span>
-                    <br>
-                    <span class="letters-third" v-show="showTitleThree">
-                        A Full Stack Developer
-                    </span>
-                </span>
-            </h1>
+                </h1>
+                <div class="buttons is-flex columns mt-5">
+                    <div class="column justify-content-end">
+                        <div class="center">
+                            <button class="btn">
+                                <svg
+                                    width="180px"
+                                    height="60px"
+                                    viewBox="0 0 180 60"
+                                    class="border"
+                                >
+                                    <polyline
+                                        points="179,1 179,59 1,59 1,1 179,1"
+                                        class="bg-line"
+                                    />
+                                    <polyline
+                                        points="179,1 179,59 1,59 1,1 179,1"
+                                        class="hl-line"
+                                    />
+                                </svg>
+                                <span>Get In Touch</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -28,14 +54,32 @@ export default {
         return {
             showTitleOne: false,
             showTitleTwo: false,
-            showTitleThree: false
+            showTitleThree: false,
         };
     },
 
     mounted() {
-        _.delay(this.titleAnimation, 1000, "letters-first", "letter-first", 'showTitleOne')
-        _.delay(this.titleAnimation, 2000, "letters-second", "letter-second", 'showTitleTwo')
-        _.delay(this.titleAnimation, 3000, "letters-third", "letter-third", 'showTitleThree')
+        _.delay(
+            this.titleAnimation,
+            1000,
+            "letters-first",
+            "letter-first",
+            "showTitleOne"
+        );
+        _.delay(
+            this.titleAnimation,
+            2000,
+            "letters-second",
+            "letter-second",
+            "showTitleTwo"
+        );
+        _.delay(
+            this.titleAnimation,
+            3000,
+            "letters-third",
+            "letter-third",
+            "showTitleThree"
+        );
     },
 
     methods: {
@@ -48,29 +92,32 @@ export default {
                 /\S/g,
                 `<span class='${letter}'>$&</span>`
             );
-            
+
             // Toggles v-show directive before animation runs
-            this.$data[show] = true
+            this.$data[show] = true;
 
             // animejs timeline animation function, does not repeat.
-            anime
-                .timeline({ loop: false })
-                .add({
-                    targets: `.hero-title .${letter}`,
-                    scale: [0, 1],
-                    duration: 1500,
-                    elasticity: 800,
-                    delay: (el, i) => 45 * (i + 1),
-                });
+            anime.timeline({ loop: false }).add({
+                targets: `.hero-title .${letter}`,
+                scale: [0, 1],
+                duration: 1500,
+                elasticity: 800,
+                delay: (el, i) => 45 * (i + 1),
+            });
         },
     },
 };
 </script>
 
 <style>
+.hero {
+    background-color: hsl(0, 0%, 19%);
+    color: white;
+}
+
 .hero-title {
     position: relative;
-    font-weight: 200;
+    font-weight: 400;
     font-size: 4em;
 }
 
@@ -88,12 +135,63 @@ export default {
     transform-origin: 50% 100%;
     display: inline-block;
 }
+
 .hero-title .letter-second {
     transform-origin: 50% 100%;
     display: inline-block;
 }
+
 .hero-title .letter-third {
     transform-origin: 50% 100%;
     display: inline-block;
+}
+
+.center {
+    width: 180px;
+    height: 60px;
+    position: absolute;
+}
+
+.btn {
+    width: 180px;
+    height: 60px;
+    cursor: pointer;
+    background: hsl(0, 0%, 19%);
+    border: 1px solid hsl(160, 91%, 63%);
+    outline: none;
+    transition: 1s ease-in-out;
+    border-radius: 12px;
+}
+
+svg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    fill: none;
+    stroke: #fff;
+    stroke-dasharray: 150 480;
+    stroke-dashoffset: 150;
+    transition: 1s ease-in-out;
+    border-radius: 12px;
+}
+
+.btn:hover {
+    transition: 1s ease-in-out;
+    background: hsl(160, 91%, 63%);
+    color: hsl(0, 0%, 19%);
+}
+
+.btn:hover svg {
+    stroke-dashoffset: -480;
+}
+
+.btn span {
+    color: white;
+    font-size: 18px;
+    font-weight: 200;
+}
+
+.btn:hover span {
+    color: hsl(0, 0%, 19%);
 }
 </style>
