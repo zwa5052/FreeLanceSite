@@ -38,7 +38,7 @@ export default {};
 </script>
 
 <style lang="scss">
-$navbar-item-hover-background-color: hsl(0, 0%, 19%);
+
 .navbar-menu {
     background-color: hsl(0, 0%, 19%);
 }
@@ -89,8 +89,4 @@ $navbar-item-hover-background-color: hsl(0, 0%, 19%);
     color: white;
 
  }
-
- body {
-    background-color: hsl(0, 0%, 19%);
-}
 </style>

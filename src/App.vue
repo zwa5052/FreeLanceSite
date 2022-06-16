@@ -7,5 +7,17 @@ import { RouterLink, RouterView } from 'vue-router'
   <RouterView />
 </template>
 
+<script>
+export default {
+  data() {
+    return {
+      showNav: false
+    }
+  },
+}
+
+</script>
+
 <style>
+
 </style>
