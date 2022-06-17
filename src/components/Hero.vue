@@ -1,6 +1,6 @@
 <template>
     <section class="hero is-fullheight">
-        <div class="hero-body">
+        <div class="hero-body p-0">
             <div class="container">
                 <h1 class="hero-title mb-5">
                     <span class="text-wrapper">
@@ -82,8 +82,8 @@ export default {
             // Then initiate animation and show title.
             this.titleAnimation(element.show)
         })
-        // After title is complete run button animation
-        _.delay(this.buttonAnimation, 6000)
+        // After title is complete show button animation
+        _.delay(() => {this.contactButton = true}, 6000)
     },
 
     methods: {
@@ -130,16 +130,6 @@ export default {
                     elasticity: 800,
                     delay: (el, i) => 45 * (i + 1),
                 })
-        },
-
-        buttonAnimation() {
-            this.contactButton = true
-            anime({
-                targets: ".buttons .btn",
-                duration: 1500,
-                elasticity: 800,
-                delay: 2000,
-            })
         },
     },
 }
@@ -224,6 +214,7 @@ svg {
     transition: 1s ease-in-out;
     background: hsl(160, 91%, 63%);
     color: hsl(0, 0%, 19%);
+    border: 3px solid hsl(0, 0%, 100%);
 }
 
 .btn:hover svg {
@@ -239,31 +230,5 @@ svg {
 .btn:hover span {
     color: hsl(0, 0%, 19%);
     font-weight: 500;
-}
-
-.animate {
-    animation-duration: 0.75s;
-    animation-duration: 1s;
-    animation-delay: 0.5s;
-    animation-name: animate-fade;
-    animation-timing-function: cubic-bezier(0.26, 0.53, 0.74, 1.48);
-    animation-fill-mode: backwards;
-}
-
-/* Flip In */
-.animate.flip {
-    animation-name: animate-flip;
-    transform-style: preserve-3d;
-    perspective: 1000px;
-}
-@keyframes animate-flip {
-    0% {
-        opacity: 0;
-        transform: rotateX(-120deg) scale(0.9, 0.9);
-    }
-    100% {
-        opacity: 1;
-        transform: rotateX(0deg) scale(1, 1);
-    }
 }
 </style>
