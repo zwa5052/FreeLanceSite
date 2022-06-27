@@ -20,24 +20,26 @@
                 </h1>
                 <div class="buttons is-flex is-justify-content-start">
                     <div class="center">
-                        <button class="btn animate flip" v-show="contactButton">
-                            <svg
-                                width="180px"
-                                height="60px"
-                                viewBox="0 0 180 60"
-                                class="border"
-                            >
-                                <polyline
-                                    points="179,1 179,59 1,59 1,1 179,1"
-                                    class="bg-line"
-                                />
-                                <polyline
-                                    points="179,1 179,59 1,59 1,1 179,1"
-                                    class="hl-line"
-                                />
-                            </svg>
-                            <span>Get In Touch</span>
-                        </button>
+                        <router-link to="/contact">
+                            <button class="btn animate flip" v-show="contactButton">
+                                <svg
+                                    width="180px"
+                                    height="60px"
+                                    viewBox="0 0 180 60"
+                                    class="border"
+                                >
+                                    <polyline
+                                        points="179,1 179,59 1,59 1,1 179,1"
+                                        class="bg-line"
+                                    />
+                                    <polyline
+                                        points="179,1 179,59 1,59 1,1 179,1"
+                                        class="hl-line"
+                                    />
+                                </svg>
+                                <span>Get In Touch</span>
+                            </button>
+                        </router-link>
                     </div>
                 </div>
             </div>
@@ -112,21 +114,21 @@ export default {
                 .add({
                     targets: `.hero-title .letter-first`,
                     scale: [0, 1],
-                    duration: 1500,
+                    duration: 1300,
                     elasticity: 800,
                     delay: (el, i) => 45 * (i + 1),
                 })
                 .add({
                     targets: `.hero-title .letter-second`,
                     scale: [0, 1],
-                    duration: 1500,
+                    duration: 1300,
                     elasticity: 800,
                     delay: (el, i) => 45 * (i + 1),
                 })
                 .add({
                     targets: `.hero-title .letter-third`,
                     scale: [0, 1],
-                    duration: 1500,
+                    duration: 1300,
                     elasticity: 800,
                     delay: (el, i) => 45 * (i + 1),
                 })
@@ -137,14 +139,14 @@ export default {
 
 <style>
 .hero {
-    background-color: hsl(0, 0%, 19%);
+    background-color: hsl(0, 0%, 12%);
     color: white;
 }
 
 .hero-title {
     position: relative;
     font-weight: 800;
-    font-size: 4em;
+    font-size: 4.5em;
 }
 
 .hero-title .text-wrapper {
@@ -154,7 +156,7 @@ export default {
     padding-right: 0.05em;
     padding-bottom: 0.1em;
     overflow: hidden;
-    line-height: 1.2em;
+    line-height: 1.4em;
 }
 
 .hero-title .letter-first {
@@ -191,7 +193,7 @@ export default {
     width: 180px;
     height: 60px;
     cursor: pointer;
-    background: hsl(0, 0%, 19%);
+    background: hsl(0, 0%, 12%);
     border: 1px solid hsl(160, 91%, 63%);
     outline: none;
     transition: 1s ease-in-out;
@@ -213,7 +215,7 @@ svg {
 .btn:hover {
     transition: 1s ease-in-out;
     background: hsl(160, 91%, 63%);
-    color: hsl(0, 0%, 19%);
+    color: hsl(0, 0%, 14%);
     border: 3px solid hsl(0, 0%, 100%);
 }
 
@@ -228,7 +230,7 @@ svg {
 }
 
 .btn:hover span {
-    color: hsl(0, 0%, 19%);
+    color: hsl(0, 0%, 12%);
     font-weight: 500;
 }
 </style>

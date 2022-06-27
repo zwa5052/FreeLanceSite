@@ -1,11 +1,239 @@
+$primary: hsl(160, 91%, 63%);
+$secondary: hsl(0, 0%, 12%);
+$secondary-contrast: hsl(0, 0%, 10%);
+$form-text: hsl(0, 0%, 65%);
+$logo-red: #fc2054;
 $navbar-item-hover-background-color: inherit !important;
+$navbar-height: 4.5rem;
+$navbar-item-img-max-height: 3rem;
+$navbar-padding-horizontal: 5rem;
+$input-focus-color: $primary;
+$input-focus-box-shadow-color: $primary;
 @import '../../../node_modules/bulma/bulma.sass';
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
 body {
-    background-color: hsl(0, 0%, 19%);
+    background-color: $secondary;
 }
 
+// Navbar Component Styles
+.navbar {
+    background-color: $secondary-contrast;
+}
+
+a.navbar-item:hover {
+    background-color: $secondary-contrast;
+}
+
+.navbar-menu {
+    background-color: $secondary-contrast;
+}
+
+.navbar-item {
+    font-weight: 500;
+    background-color: $secondary-contrast;
+}
+
+.nabar-brand {
+    background-color: $secondary-contrast;
+}
+
+a.navbar-item:hover {
+    background-color: $secondary-contrast;
+}
+
+.link-hover {
+    display: flex;
+    text-decoration: none;
+    position: relative;
+    background-color: $secondary-contrast;
+    cursor: pointer;
+    color: inherit;
+}
+
+.link-hover:before {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: $primary;
+    transform-origin: 0 bottom 0;
+    transform: scaleY(0);
+    transition: 0.4s ease-out;
+}
+
+.link-hover.navbar-item:hover .nav-link {
+    font-weight: 500;
+    color: hsl(0, 0%, 0%);
+}
+
+.link-hover:hover:before {
+    transform: scaleY(1);
+}
+
+.nav-link {
+    position: relative;
+    transition: 0.4s ease-out;
+    color: white;
+}
+//End Navbar styles
+
+// Hero component styles 
+.hero {
+    background-color: $secondary;
+    color: white;
+}
+
+.hero-title {
+    position: relative;
+    font-weight: 800;
+    font-size: 4.5em;
+}
+
+.hero-title .text-wrapper {
+    position: relative;
+    display: inline-block;
+    padding-top: 0.2em;
+    padding-right: 0.05em;
+    padding-bottom: 0.1em;
+    overflow: hidden;
+    line-height: 1.4em;
+}
+
+.hero-title .letter-first {
+    transform-origin: 50% 100%;
+    display: inline-block;
+    font-family: "Montserrat", sans-serif;
+}
+
+.hero-title .letter-second {
+    transform-origin: 50% 100%;
+    display: inline-block;
+    font-family: "Montserrat", sans-serif;
+}
+
+.hero-title .letter-third {
+    transform-origin: 50% 100%;
+    display: inline-block;
+    font-family: "Montserrat", sans-serif;
+}
+
+.center {
+    width: 180px;
+    height: 60px;
+    position: absolute;
+}
+
+.buttons .btn {
+    transform-origin: 50% 100%;
+    display: inline-block;
+    position: relative;
+}
+
+.btn {
+    width: 180px;
+    height: 60px;
+    cursor: pointer;
+    background: $secondary;
+    border: 1px solid $primary;
+    outline: none;
+    transition: 1s ease-in-out;
+    border-radius: 12px;
+}
+
+svg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    fill: none;
+    stroke: #fff;
+    stroke-dasharray: 150 480;
+    stroke-dashoffset: 150;
+    transition: 1s ease-in-out;
+    border-radius: 12px;
+}
+
+.btn:hover {
+    transition: 1s ease-in-out;
+    background: $primary;
+    color: $secondary;
+    border: 3px solid white;
+}
+
+.btn:hover svg {
+    stroke-dashoffset: -480;
+}
+
+.btn span {
+    color: white;
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.btn:hover span {
+    color: $secondary;
+    font-weight: 500;
+}
+// End hero component styles
+
+// Contact form component styles
+.container.contactForm {
+    height: 100vh;
+}
+
+.card.contact-card{
+    background-color: $secondary;
+    width: 60%;
+    color: white;
+    border: 2px solid hsl(0, 0%, 35%);
+    border-radius: 1%;
+}
+
+.card-header-title {
+    color: white;
+}
+
+.label {
+    color: white;
+}
+
+input.input {
+    background-color: hsl(0, 0%, 19%);
+    border: 1px solid hsl(0, 0%, 25%);
+    color: $form-text;
+}
+
+input.input:hover {
+    border: 1.5px solid $primary;
+}
+
+input.input::placeholder {
+    color: hsl(0, 0%, 65%);
+}
+
+.icon {
+    color: white;
+}
+
+textarea.textarea {
+    background-color: hsl(0, 0%, 19%);
+    border: 1px solid hsl(0, 0%, 25%);
+    color: hsl(0, 0%, 65%);
+}
+
+textarea.textarea:hover {
+    border: 1.5px solid hsl(160, 91%, 63%);
+}
+
+textarea.textarea::placeholder {
+    color: $form-text;
+}
+// End contact form styles
+
+// Animation classes
 .animate {
     animation-duration: 0.75s;
     animation-duration: 1s;
@@ -14,7 +242,6 @@ body {
     animation-timing-function: cubic-bezier(0.26, 0.53, 0.74, 1.48);
     animation-fill-mode: backwards;
 }
-
 /* Flip In */
 .animate.flip {
     animation-name: animate-flip;
@@ -31,3 +258,4 @@ body {
         transform: rotateX(0deg) scale(1, 1);
     }
 }
+// End animation classes

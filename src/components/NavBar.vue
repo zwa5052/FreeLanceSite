@@ -3,16 +3,15 @@
         class="navbar is-fixed-top animate flip"
         role="navigation"
         aria-label="main navigation"
-        v-show="showNav"
     >
         <div class="navbar-brand">
-            <a class="navbar-item" href="https://bulma.io">
-                <img
-                    src="https://bulma.io/images/bulma-logo.png"
-                    width="112"
-                    height="28"
+            <router-link class="navbar-item" to="/">
+                <img class="p-1"
+                height="70"
+                width="70"
+                    src="src/assets/images/b_zach_revision_no_text_transparent.svg"
                 />
-            </a>
+            </router-link>
 
             <a
                 role="button"
@@ -55,34 +54,40 @@ export default {
         }
     },
 
-    created() {
-        // Shows navbar after 8 seconds (once title animation runs and rest of hero is shown)
-        _.delay(() => {
-            this.showNav = true
-        }, 6000)
-    },
 }
 </script>
 
 <style lang="scss">
+.navbar {
+    background-color: hsl(0, 0%, 10%);
+}
+
+a.navbar-item:hover {
+    background-color: hsl(0, 0%, 18%);
+}
+
 .navbar-menu {
-    background-color: hsl(0, 0%, 19%);
+    background-color: hsl(0, 0%, 10%);
 }
 
 .navbar-item {
     font-weight: 500;
-    background-color: hsl(0, 0%, 19%);
+    background-color: hsl(0, 0%, 10%);
 }
 
 .nabar-brand {
-    background-color: hsl(0, 0%, 19%);
+    background-color: hsl(0, 0%, 10%);
+}
+
+a.navbar-item:hover {
+    background-color: hsl(0, 0%, 10%);
 }
 
 .link-hover {
     display: flex;
     text-decoration: none;
     position: relative;
-    background-color: hsl(0, 0%, 19%);
+    background-color: hsl(0, 0%, 10%);
     cursor: pointer;
     color: inherit;
 }
